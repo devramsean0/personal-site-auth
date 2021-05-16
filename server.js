@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const require= ('..utis') = require('utis')
 const app = express();
 
 app.get('/', (req, res) => {
