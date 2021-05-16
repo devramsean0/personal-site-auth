@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-
+const require= ('..utis') = require('utis')
 const app = express();
 
 app.get('/', (req, res) => {
@@ -12,3 +12,17 @@ app.listen(50451, () => {
 });
 // Routes
 app.use('/api/discord', require('./api/discord'));
+app.use((err, req, res, next) => {
+  switch (err.message) {
+    case 'NoCodeProvided':
+      return res.status(400).send({
+        status: 'ERROR',
+        error: err.message,
+      });
+    default:
+      return res.status(500).send({
+        status: 'ERROR',
+        error: err.message,
+      });
+  }
+});
