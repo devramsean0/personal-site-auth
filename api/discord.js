@@ -2,7 +2,7 @@ const express = require('express');
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const router = express.Router();
-const redirect = encodeURIComponent('http://localhost:50451/api/discord/callback');
+const redirect = encodeURIComponent('http://86.166.243.241:2008/api/discord/callback');
 const fetch = require('node-fetch');
 const btoa = require('btoa');
 const { catchAsync } = require('../utis');
@@ -21,6 +21,6 @@ router.get('/callback', catchAsync(async (req, res) => {
       },
     });
   const json = await response.json();
-  res.redirect(`/?token=${code}`);
+  res.redirect(`https://sean-outram.xyz`);
 }));
 module.exports = router;
